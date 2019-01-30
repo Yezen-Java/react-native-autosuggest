@@ -8,6 +8,7 @@ import {
   ListView,
   TouchableOpacity,
   View,
+  Image,
   Keyboard,
   TouchableWithoutFeedback,
   Button,
@@ -219,6 +220,24 @@ export default class AutoSuggest extends Component {
               width: this.state.textInputWidth,
               backgroundColor: 'white',
               zIndex: 3,
+            }}
+            renderFooter={() => {
+              return this.state.currentInput &&
+                this.state.results.length > 0 ? (
+                  <View
+                    style={{
+                      alignItems: 'center',
+                      paddingBottom: 10,
+                      height: 25,
+                    }}
+                  >
+                    <Image
+                      style={{ flex: 1 }}
+                      resizeMode={'contain'}
+                      source={require('./images/google/powered_by_google_on_white.png')}
+                    />
+                  </View>
+                ) : null
             }}
             keyboardShouldPersistTaps='always'
             initialListSize={15}
