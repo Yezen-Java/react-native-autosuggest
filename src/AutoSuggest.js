@@ -173,7 +173,6 @@ export default class AutoSuggest extends Component {
       onItemPress,
       onLayout,
       LocationHeader,
-      LocationCallback,
       Content,
     } = this.props
     return (
@@ -248,11 +247,7 @@ export default class AutoSuggest extends Component {
                   </View>
                 ) : null
             }}
-            renderHeader={() =>
-              this.state.active && (
-                <LocationHeader callback={() => LocationCallback()} />
-              )
-            }
+            renderHeader={() => this.state.active && LocationHeader}
             keyboardShouldPersistTaps='always'
             initialListSize={15}
             enableEmptySections
