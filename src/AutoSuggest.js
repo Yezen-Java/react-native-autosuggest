@@ -240,7 +240,7 @@ export default class AutoSuggest extends Component {
                   </View>
                 ) : null
             }}
-            renderHeader={() => this.state.active && LocationHeader}
+            renderHeader={() => this.props.active && LocationHeader}
             keyboardShouldPersistTaps='always'
             initialListSize={15}
             enableEmptySections
