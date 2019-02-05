@@ -47,7 +47,6 @@ export default class AutoSuggest extends Component {
     textInputWidth: null,
     results: [],
     currentInput: null,
-    active: false,
   }
 
   componentDidMount () {
@@ -140,10 +139,6 @@ export default class AutoSuggest extends Component {
     this.clearTerms()
   }
 
-  isFocused () {
-    this.setState({ active: !this.state.active })
-  }
-
   getCombinedStyles (styleName) {
     let styleObj
     if (typeof this.props.styleName !== 'object') {
@@ -190,8 +185,6 @@ export default class AutoSuggest extends Component {
             ref={c => {
               this.textInput = c
             }}
-            onFocus={() => this.isFocused()}
-            onBlur={() => this.isFocused()}
             spellCheck={false}
             defaultValue={this.state.currentInput}
             onChangeText={el => {
